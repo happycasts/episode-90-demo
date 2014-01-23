@@ -38,10 +38,6 @@
       width: 280px;
     }
 
-    .site-nav-transition .site-nav-scrollable-container {
-      display: block;
-      width: 280px;
-    }
     .site-nav-overlay {
       display: none;
       position: absolute;
@@ -57,36 +53,20 @@
       display: block;
     }
     .container {
-      height: 100%;
+      background: teal;
     }
     .site-nav-drawer-open #container {
-      transform: translate3d(280px,0,0);
+      -webkit-transform: translate3d(280px,0,0);
+      /*chrome needs -webkits*/
     }
     .site-nav-transition #container {
-      left: 0;
-      position: fixed;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
       z-index: 800;
-    }
-    .screen-content {
-      position: relative;
-      height: 100%;
-      outline: 0;
-    }
-    .scrolling-region {
-      position: relative;
-      overflow: auto;
-      height: 100%;
-      z-index: 100;
-      background: green;
     }
     </style>
   </head>
   <body class="medium">
     <nav class="site-nav">
-      <button class="site-nav-logo distraction-free-component">
+      <button class="site-nav-logo">
         <span class="icons"></span>
       </button>
       <div class="site-nav-scrollable-container">
@@ -94,18 +74,14 @@
     </nav>
     <div class="site-nav-overlay"></div>
     <div class="container" id="container">
-        <div class="screen-content">
-          nice
-        </div>
+       nice
     </div>
     <script>
       $(".site-nav-logo").click(function(){
         $("body").addClass("site-nav-transition site-nav-drawer-open");
-        console.log($("body").attr('class'));
       });
       $(".site-nav-overlay").click(function(){
         $("body").removeClass("site-nav-transition site-nav-drawer-open");
-        console.log($("body").attr('class'));
       });
     </script>
   </body>
