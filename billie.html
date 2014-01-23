@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="simulating medium">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>window.jQuery || document.write('<script src="jquery-1.8.1.js"><\/script>')</script>
+    <title>medium</title>
+    <style>
+    body {
+      margin: 0;
+      height: 100%;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    .site-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      outline: 0;
+      background-color: #191918;
+    }
+    .site-nav-logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 44px;
+      height: 44px;
+      z-index: 700;
+      background-color: #333332;
+      text-align: center;
+      border: 0;
+      filter: alpha(opacity=100);
+      -khtml-opacity: 1;
+      -moz-opacity: 1;
+      opacity: 1;
+      -webkit-transition: top .2s linear,left .2s linear,opacity .2s linear;
+      -moz-transition: top .2s linear,left .2s linear,opacity .2s linear;
+      -ms-transition: top .2s linear,left .2s linear,opacity .2s linear;
+      -o-transition: top .2s linear,left .2s linear,opacity .2s linear;
+      transition: top .2s linear,left .2s linear,opacity .2s linear;
+    }
+    .site-nav-logo {
+      cursor: pointer;
+    }
+    .site-nav-drawer-open .site-nav-logo {
+      display: none;
+    }
+    .site-nav-transition .site-nav-logo {
+      -webkit-transition: none;
+      -moz-transition: none;
+      -ms-transition: none;
+      -o-transition: none;
+      transition: none;
+      filter: alpha(opacity=0);
+      -khtml-opacity: 0;
+      -moz-opacity: 0;
+      opacity: 0;
+      top: 0;
+    }
+    .site-nav-logo.distraction-free-component {
+      -webkit-transition: opacity .3s linear .3s;
+      -moz-transition: opacity .3s linear .3s;
+      -ms-transition: opacity .3s linear .3s;
+      -o-transition: opacity .3s linear .3s;
+      transition: opacity .3s linear .3s;
+    }
+    .site-nav-scrollable-container {
+      display: none;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      height: 100%;
+    }
+    .site-nav-drawer-open .site-nav-scrollable-container {
+      display: block;
+      width: 280px;
+    }
+    .site-nav-list-item {
+      color: #b3b3b1;
+    }
+    .site-nav-transition .site-nav-scrollable-container {
+      display: block;
+      width: 280px;
+    }
+    .site-nav-overlay {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 600;
+    }
+    .site-nav-drawer-open .site-nav-overlay {
+      left: 280px;
+      z-index: 900;
+      display: block;
+    }
+    .container {
+      height: 100%;
+    }
+    .container {
+      background-color: #fff;
+      -webkit-transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+      -moz-transition: -moz-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+      -o-transition: -o-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+      transition: transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+    }
+    .site-nav-drawer-open #container {
+      -webkit-transform: translate3d(280px,0,0);
+      -moz-transform: translate3d(280px,0,0);
+      -ms-transform: translate3d(280px,0,0);
+      -o-transform: translate3d(280px,0,0);
+      transform: translate3d(280px,0,0);
+    }
+    .site-nav-transition #container {
+      left: 0;
+      position: fixed;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      z-index: 800;
+    }
+    .surface {
+      display: block;
+      visibility: visible;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: padding-bottom .1s;
+      -moz-transition: padding-bottom .1s;
+      -ms-transition: padding-bottom .1s;
+      -o-transition: padding-bottom .1s;
+      transition: padding-bottom .1s;
+    }
+    .screen-content {
+      position: relative;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      height: 100%;
+      outline: 0;
+    }
+    .scrolling-region {
+      position: relative;
+      overflow: auto;
+      height: 100%;
+      z-index: 100;
+    }
+    .bg {
+      background-color: white;
+    }
+    .bucket {
+      width: 640px;
+      margin: 0 auto;
+    }
+    .lists li {
+      margin: 50px 0;
+      padding: 30px;
+    }
+    </style>
+  </head>
+  <body class="medium">
+    <nav class="site-nav">
+      <button class="site-nav-logo distraction-free-component">
+        <span class="icons icons-logo-m"></span>
+      </button>
+      <div class="site-nav-scrollable-container">
+        <ul class="site-nav-list">
+          <li class="site-nav-list-item navigable-list-item site-nav-list-item-home">one</li>
+          <li class="site-nav-list-item navigable-list-item">second</li>
+          <li class="site-nav-list-item navigable-list-item">third</li>
+        </ul>
+      </div>
+    </nav>
+    <div class="site-nav-overlay"></div>
+    <div class="container" id="container">
+      <div class="surface">
+        <div class="screen-content">
+          <div class="scrolling-region">
+            <div class="bg">
+              <div class="bucket">
+                <ul class="lists">
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, facilis, quia explicabo nemo reiciendis maxime ipsa velit dignissimos fugit laboriosam voluptatum sunt consequuntur dolore minus sit. Quasi, enim dolorum sed!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, quis voluptate voluptates odio at recusandae iusto pariatur. Quaerat, culpa, temporibus, porro laudantium odio animi distinctio modi voluptates necessitatibus pariatur blanditiis.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, tenetur numquam impedit corporis deserunt cum cumque. At, hic nam quia sunt similique autem earum. Corporis possimus nulla voluptatum explicabo praesentium?
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, impedit, quisquam, expedita quae alias culpa accusantium ducimus incidunt similique voluptatem aliquid modi mollitia architecto molestiae facilis itaque perferendis quos nihil?
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos sit dolor voluptates necessitatibus et fuga explicabo provident excepturi numquam est? Non ad vel minus nulla laborum? Eveniet fugiat ipsa cupiditate!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, voluptatem, sint, accusamus harum vel asperiores consequatur adipisci libero voluptatibus tempora veritatis ab in dicta ex illum. Excepturi, error doloribus sit!
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, quis quisquam consectetur voluptatem quod iusto aspernatur debitis quaerat. Natus, tenetur voluptatum velit veniam dolore enim qui provident odit ullam veritatis.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, expedita deserunt totam debitis blanditiis sed iure eveniet nihil reprehenderit ab optio ut hic a dolorum ad porro consequatur fuga repellendus.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(".site-nav-logo").click(function(){
+        $("body").addClass("site-nav-transition site-nav-drawer-open");
+      });
+      $(".site-nav-overlay").click(function(){
+        $("body").removeClass("site-nav-transition site-nav-drawer-open");
+      });
+    </script>
+  </body>
+</html>

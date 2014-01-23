@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <script>window.jQuery || document.write('<script src="jquery-1.8.1.js"><\/script>')</script>
+    <style>
+    body {
+      margin: 0;
+    }
+    .site-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      outline: 0;
+      background-color: #191918;
+    }
+    .site-nav-logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 44px;
+      height: 44px;
+      z-index: 700;
+      background-color: yellow;
+    }
+ 
+    .site-nav-drawer-open .site-nav-logo {
+      display: none;
+    }
+    
+    .site-nav-scrollable-container {
+      display: none;
+      overflow: auto;
+      height: 100%;
+    }
+    .site-nav-drawer-open .site-nav-scrollable-container {
+      display: block;
+      width: 280px;
+    }
+
+    .site-nav-transition .site-nav-scrollable-container {
+      display: block;
+      width: 280px;
+    }
+    .site-nav-overlay {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 600;
+    }
+    .site-nav-drawer-open .site-nav-overlay {
+      left: 280px;
+      z-index: 900;
+      display: block;
+    }
+    .container {
+      height: 100%;
+    }
+    .site-nav-drawer-open #container {
+      transform: translate3d(280px,0,0);
+    }
+    .site-nav-transition #container {
+      left: 0;
+      position: fixed;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      z-index: 800;
+    }
+    .screen-content {
+      position: relative;
+      height: 100%;
+      outline: 0;
+    }
+    .scrolling-region {
+      position: relative;
+      overflow: auto;
+      height: 100%;
+      z-index: 100;
+      background: green;
+    }
+    </style>
+  </head>
+  <body class="medium">
+    <nav class="site-nav">
+      <button class="site-nav-logo distraction-free-component">
+        <span class="icons"></span>
+      </button>
+      <div class="site-nav-scrollable-container">
+      </div>
+    </nav>
+    <div class="site-nav-overlay"></div>
+    <div class="container" id="container">
+        <div class="screen-content">
+          nice
+        </div>
+    </div>
+    <script>
+      $(".site-nav-logo").click(function(){
+        $("body").addClass("site-nav-transition site-nav-drawer-open");
+        console.log($("body").attr('class'));
+      });
+      $(".site-nav-overlay").click(function(){
+        $("body").removeClass("site-nav-transition site-nav-drawer-open");
+        console.log($("body").attr('class'));
+      });
+    </script>
+  </body>
+</html>
