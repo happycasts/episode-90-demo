@@ -18,6 +18,21 @@
       outline: 0;
       background-color: #191918;
     }
+
+    .site-nav-drawer-open .site-nav-logo {
+    }
+
+    .site-nav-transition .site-nav-logo {
+      opacity: 0;
+      height: 0;
+      /*medium use 'display: none' here,
+        but is not possible to do transition from display:none
+        you need to use 'setTimeout' in js to do this
+        https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions
+        http://www.impressivewebs.com/animate-display-block-none
+        */
+    }
+
     .site-nav-logo {
       position: absolute;
       top: 10px;
@@ -25,11 +40,11 @@
       width: 44px;
       height: 44px;
       z-index: 700;
-      background-color: yellow;
-    }
-
-    .site-nav-drawer-open .site-nav-logo {
-      display: none;
+      background-color: #333332;
+      text-align: center;
+      border: 0;
+      opacity: 1;
+      -webkit-transition: opacity .3s linear;
     }
 
     .site-nav-scrollable-container {
