@@ -47,12 +47,56 @@
       overflow: auto;
       height: 100%;
     }
-
     .site-nav-transition .site-nav-scrollable-container {
       display: block;
       width: 280px;
     }
 
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      list-style-image: none;
+    }
+    .site-nav-list-item.site-nav-list-item-home {
+      margin-top: 10px;
+    }
+    .site-nav-list-item {
+      position: relative;
+    }
+    .site-nav-list-item:first-child .site-nav-list-item-btn {
+    line-height: 46px;
+    }
+    .site-nav-list-item-btn, .site-nav-list-item-btn .icons:before {
+      color: #b3b3b1;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .site-nav-list-item-btn {
+      font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      font-style: normal;
+      display: block;
+      padding: 0 16px 0 52px;
+      height: 42px;
+      line-height: 45px;
+      font-size: 14px;
+      border: 0;
+      background: rgba(0,0,0,0);
+      text-align: left;
+    }
+    .site-nav-list-item-btn:hover {
+      color: #fff;
+      outline: 0;
+    }
+
+    li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+    }
     .site-nav-overlay {
       display: none;
       position: absolute;
@@ -101,6 +145,23 @@
         <span class="icons"></span>
       </button>
       <div class="site-nav-scrollable-container">
+        <ul class="site-nav-list">
+          <li class="site-nav-list-item navigable-list-item site-nav-list-item-home">
+            <a class="site-nav-list-item-btn" title="Go home" href="/" tabindex="-1">
+              Home
+            </a>
+          </li>
+          <li class="site-nav-list-item navigable-list-item">
+            <a class="site-nav-list-item-btn" title="Collections" href="/collections" tabindex="-1">
+              Collections
+            </a>
+          </li>
+          <li class="site-nav-list-item navigable-list-item">
+            <a class="site-nav-list-item-btn" title="Sign in with Twitter" data-action="sign-in-with-twitter" href="/m/account/authenticate-twitter" tabindex="-1">
+              Sign in with Twitter
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
     <div class="site-nav-overlay"></div>
