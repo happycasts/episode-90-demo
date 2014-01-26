@@ -48,6 +48,19 @@
         color: #fff;
         outline: 0;
       }
+      .site-nav-overlay {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .site-nav-drawer-open .site-nav-overlay {
+        left: 280px;
+        z-index: 900;
+        display: block;
+      }
       .site-nav-logo {
         width: 44px;
         height: 44px;
@@ -95,6 +108,7 @@
         </ul>
       </div>
     </nav>
+    <div class="site-nav-overlay"></div>
     <div class="container">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, tempora repellendus enim dolores repellat facilis doloremque aspernatur eaque commodi qui aliquid ut atque reprehenderit animi non aliquam nostrum temporibus molestiae deleniti unde maxime sapiente doloribus nesciunt? Iusto, earum, accusantium dolorum temporibus ad veniam porro quam voluptate est praesentium et cupiditate doloribus libero aperiam officia assumenda sit facere ea quibusdam rerum ipsa magnam laboriosam quisquam reiciendis dolor nemo incidunt atque tenetur hic amet asperiores tempore tempora doloremque laborum deserunt voluptatum adipisci. Doloribus, praesentium sit! Possimus, consectetur, sapiente sit rem ducimus sed eligendi expedita animi temporibus pariatur perspiciatis cumque adipisci nulla. Aperiam.
     </div>
@@ -102,6 +116,9 @@
       var body = $('body');
       $('.site-nav-logo').click(function(){
         body.addClass('site-nav-drawer-open');
+      });
+      $('.site-nav-overlay').click(function(){
+        body.removeClass('site-nav-drawer-open');
       });
     </script>
   </body>
