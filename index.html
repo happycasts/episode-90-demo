@@ -31,7 +31,7 @@
         overflow: auto;
         height: 100%;
       }
-      .site-nav-drawer-open .site-nav-scrollable-container {
+      .site-nav-transition .site-nav-scrollable-container {
         display: block;
         width: 280px;
       }
@@ -80,9 +80,13 @@
         height: 100%;
         transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
       }
+      .site-nav-transition .container {
+        position: fixed;
+        /*this is needed for .container to sit on top of site-nav
+          so, this needs to be removed later*/
+      }
       .site-nav-drawer-open .container {
         -webkit-transform: translate3d(280px,0,0);
-        position: fixed;
       }
     </style>
   </head>
@@ -116,10 +120,13 @@
     <script>
       var body = $('body');
       $('.site-nav-logo').click(function(){
-        body.addClass('site-nav-drawer-open');
+        body.addClass('site-nav-transition site-nav-drawer-open');
       });
       $('.site-nav-overlay').click(function(){
         body.removeClass('site-nav-drawer-open');
+        setTimeout(function () {
+                   body.removeClass("site-nav-transition");
+                   }, 300);
       });
     </script>
   </body>
