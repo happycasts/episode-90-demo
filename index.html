@@ -28,10 +28,17 @@
         left: 10px;
         border: 0;
       }
+      .site-nav-drawer-open .site-nav-logo {
+        display: none;
+      }
       .container {
         background: #EAEAF1;
         color: #333332;
         height: 100%;
+      }
+      .site-nav-drawer-open .container {
+        -webkit-transform: translate3d(280px,0,0);
+        position: fixed;
       }
     </style>
   </head>
@@ -40,5 +47,11 @@
     <div class="container">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, tempora repellendus enim dolores repellat facilis doloremque aspernatur eaque commodi qui aliquid ut atque reprehenderit animi non aliquam nostrum temporibus molestiae deleniti unde maxime sapiente doloribus nesciunt? Iusto, earum, accusantium dolorum temporibus ad veniam porro quam voluptate est praesentium et cupiditate doloribus libero aperiam officia assumenda sit facere ea quibusdam rerum ipsa magnam laboriosam quisquam reiciendis dolor nemo incidunt atque tenetur hic amet asperiores tempore tempora doloremque laborum deserunt voluptatum adipisci. Doloribus, praesentium sit! Possimus, consectetur, sapiente sit rem ducimus sed eligendi expedita animi temporibus pariatur perspiciatis cumque adipisci nulla. Aperiam.
     </div>
+    <script>
+      var body = $('body');
+      $('.site-nav-logo').click(function(){
+        body.addClass('site-nav-drawer-open');
+      });
+    </script>
   </body>
 </html>
